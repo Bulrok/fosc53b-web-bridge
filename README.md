@@ -10,6 +10,8 @@ at once, with no vendor app.
   Fosc53B  ──Wi-Fi/LAN──▶  server.py (bridge, port 8053)  ──WebSocket──▶  browsers
 ```
 
+![The web UI in a desktop browser: five channels of live waveforms on the graticule, per-channel volts/div and position, trigger and measurement panels (here fed by the --sim test signals)](docs/web-desktop.png)
+
 ## Hardware
 
 * **Fosc53B** 5-channel Wi-Fi oscilloscope. Internally an ESP8266 serial-to-Wi-Fi bridge sits in front of the scope MCU.
@@ -75,6 +77,8 @@ Give the bridge machine a DHCP reservation so the address stays valid. Fully's o
 is a swipe from the left edge (hold briefly first); it is not locked down.
 
 ## Using the page
+
+<img src="docs/web-phone.png" alt="The same page on a phone: controls wrap above the trace and the channel panel moves below it" width="260" align="right">
 
 * **Run / Stop** freezes the display per viewer. While stopped, drag horizontally to
   scroll back through history (about 40 s at the fastest timebases, hours at slow
