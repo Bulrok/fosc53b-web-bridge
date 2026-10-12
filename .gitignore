@@ -1,0 +1,16 @@
+# runtime state (shared scope settings written by server.py)
+settings.json
+# local Fully Kiosk config with your bridge address (copy from the .example)
+tablet/fully-once-settings.json
+__pycache__/
+*.pyc
+*.bak
+.venv/
+venv/
+# local tooling / notes
+.claude/
+CLAUDE.md
+# captures
+*.pcap
+*.pcapng
+*.log

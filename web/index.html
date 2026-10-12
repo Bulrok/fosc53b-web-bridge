@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0b1020">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Fosc53B Scope</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1020'/%3E%3Cpolyline points='3,16 9,16 12,6 16,26 20,10 23,16 29,16' fill='none' stroke='%233987e5' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="top">
+    <div class="brand"><span class="dot" id="statusDot"></span><span id="devName">Fosc53B</span><span id="statusText" class="muted">connecting…</span></div>
+    <div class="topctl">
+      <button id="btnRun" class="btn primary" title="Space">Run</button>
+      <button id="btnAuto" class="btn toggle" title="A — auto scale, time base and trigger">Auto</button>
+      <div class="tb">
+        <button id="tbMinus" class="btn" title="←">−</button>
+        <div class="tbLabel"><span id="tbValue">4 ms</span><small>/div</small></div>
+        <button id="tbPlus" class="btn" title="→">+</button>
+      </div>
+      <button id="btnCursors" class="btn toggle" title="C">Cursors</button>
+      <button id="btnMeasure" class="btn toggle on" title="M">Measure</button>
+      <button id="btnPanel" class="btn only-narrow" title="Show controls">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="scopeWrap">
+      <canvas id="scope"></canvas>
+      <div id="overlay">
+        <div id="readout" class="readout"></div>
+        <div id="hint" class="hint"></div>
+      </div>
+    </div>
+
+    <aside id="panel">
+      <section class="card" id="chanCard">
+        <h3>Channels</h3>
+        <div id="chanList"></div>
+      </section>
+
+      <section class="card" id="trigCard">
+        <h3>Trigger</h3>
+        <div class="row">
+          <button id="trigEn" class="btn toggle">Off</button>
+          <div class="seg" id="trigSrc"></div>
+          <button id="trigEdge" class="btn" title="Edge">↗ rising</button>
+        </div>
+        <label class="slider"><span>Level</span><input id="trigLevel" type="range" min="1" max="254" value="125"><b id="trigLevelV">0 V</b></label>
+        <label class="slider"><span>Position</span><input id="trigPoint" type="range" min="0" max="1600" value="200"><b id="trigPointV">—</b></label>
+      </section>
+
+      <section class="card" id="measCard">
+        <h3>Measurements</h3>
+        <div class="tablewrap"><table id="measTable"><thead><tr><th>Ch</th><th>Vpp</th><th>Vmax</th><th>Vmin</th><th>Mean</th><th>RMS</th><th>Freq</th></tr></thead><tbody></tbody></table></div>
+      </section>
+
+      <section class="card" id="infoCard">
+        <h3>Device</h3>
+        <div id="devInfo" class="kv"></div>
+        <div class="row wrap">
+          <button id="btnExport" class="btn">Export CSV</button>
+          <button id="btnPng" class="btn">Save PNG</button>
+          <button id="btnFull" class="btn">Fullscreen</button>
+        </div>
+        <p class="muted small">Keys: Space run/stop · A auto set · ←/→ timebase · 1–5 select channel · ↑/↓ move channel · C cursors · M measure. Drag the channel tag on the left edge to move a trace. When stopped, drag the screen to scroll through history and use ±to zoom.</p>
+      </section>
+    </aside>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

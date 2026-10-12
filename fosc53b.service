@@ -1,0 +1,14 @@
+# Install: copy to ~/.config/systemd/user/, set the path below to your checkout,
+# then: systemctl --user daemon-reload && systemctl --user enable --now fosc53b
+[Unit]
+Description=Fosc53B oscilloscope web bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 %h/fosc53b-web-bridge/server.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

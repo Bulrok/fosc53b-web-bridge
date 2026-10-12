@@ -1,0 +1,16 @@
+{
+  "startURL": "http://BRIDGE_IP:8053/",
+  "autoImportSettings": true,
+  "keepScreenOn": true,
+  "keepOnWhileFullscreen": true,
+  "enablePullToRefresh": false,
+  "enableZoom": false,
+  "confirmExit": false,
+  "enableTapSound": false,
+  "disableStatusBar": false,
+  "kioskMode": false,
+  "launchOnBoot": false,
+  "reloadOnScreenOn": true,
+  "reloadOnInternet": true,
+  "restartOnCrash": true
+}
